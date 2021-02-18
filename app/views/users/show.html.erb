@@ -1,0 +1,21 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+    <% if flash[:notice] %>
+     <p><%= flash[:notice] %></p>
+    <% end %>
+
+
+    <%= form_tag("/users/#{@user.id}/edit") do %>
+      <h3>アカウント情報</h3>
+      <p>名前</p>
+      <p><%= @user.name %></p>
+      <p>メールアドレス</p>
+      <p><%= @user.email %></p>
+      <%# <p>パスワード</p>
+      <p><%= @user.password %>
+      <input type="submit" value="編集">
+    <% end %>
+    </div>
+  </div>
+</div>

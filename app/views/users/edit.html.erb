@@ -1,0 +1,19 @@
+<div class="main user-show">
+    <% if flash[:notice] %>
+     <p><%= flash[:notice] %></p>
+    <% end %>
+  <div class="container">
+    <div class="user">
+      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+        <h2>アカウント編集</h2>
+        <p>メールアドレス</p>
+        <p><input name="email" value="<%= @user.email %>"></p>
+        <p>プロフィール画像</p>
+        <input type="file" name="image">  
+        <p>変更後パスワード</p>
+        <p><input type="password" name="password"></p>
+        <input type="submit" value="変更">
+      <% end %>
+    </div>
+  </div>
+</div>

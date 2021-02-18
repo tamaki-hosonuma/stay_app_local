@@ -1,0 +1,55 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.top-page{
+  background:url("/宇宙.jpg") center / cover;
+  // background-color: rgb(45,163,203);
+  background-repeat:  no-repeat;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  
+
+ .search{
+    margin:200px auto auto 100px;
+    position: absolute;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 5%;
+    width: 400px;
+    height: 250px;
+    text-align: center;
+
+    input{
+      width: 300px;
+      margin: 10px;
+    }
+  }
+}
+
+
+
+.back-image{
+  margin-left: 400px;
+
+}
+
+
+.nav{
+  background-color: #FFF;
+}
+
+.recommend-area{
+  display: flex;
+  
+}
+
+.view{
+  width: 300px;
+  height: 400px;
+}
+
+// .recommend-area{
+
+// }

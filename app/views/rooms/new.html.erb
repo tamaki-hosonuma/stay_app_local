@@ -1,0 +1,23 @@
+<h3>ルーム登録</h3>
+<%= form_tag("/rooms/create",{multipart: true}) do %>
+  <p>ルームタイトル</p>
+  <input name="title">
+  <p>エリア</p>
+  <input name="area">
+  <p>住所</p>
+  <input name="address">
+  <p>プライス</p>
+  <input name="price">
+  <p>詳細</p>
+  <textarea rows="10" cols="60" name="content"></textarea>
+
+  <%# <p>ルームイメージ</p>
+  <input type="file" name="image_name"> %>
+
+  <p>ユーザーID</p>
+  <input name="user_id" value="<%= @current_user.id %>">
+  
+  <p>
+  <input type="submit" value="登録">
+  </p>
+<% end %>

@@ -1,0 +1,85 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if @room.user_id == @current_user.id %>
+ <%= form_tag("/rooms/#{@room.id}/edit") do %>
+  <h3>ルーム詳細</h3>
+  <table>
+    <tr>
+      <th>ルーム名</th><td><%= @room.title %></td>
+    </tr>
+
+    <tr>
+      <th>エリア</th><td><%= @room.area %></td>
+    </tr>
+
+    <tr>
+      <th>住所</th><td><%= @room.address %></td>
+    </tr>
+
+    <tr>
+      <th>プライス</th><td><%= @room.price %></td>
+    </tr>
+    <tr>
+      <th>詳細</th><td><%= @room.content %></td>
+    </tr>
+    <tr>
+      <th>ルームイメージ</th>
+      <td>
+      <% if @room.image_name == "#{@room.id}.jpg" %>
+        <img src="<%= "/room_images/#{@room.image_name}" %>" class="room-image">
+      <% else %>
+        <img src ="/room_images/default-room.jpg" class="room-image">
+      <% end %>
+      </td>
+    </tr>
+  </table>
+  
+  <p>
+    <input type="submit" value="編集">
+  </p>
+  <%= link_to("削除", "/rooms/#{@room.id}/destroy", {method: "post"}) %>
+ <% end %>
+   
+
+<% else %>
+  
+    <h3>ルーム詳細</h3>
+    <table>
+      <tr>
+        <th>ルーム名</th><td><%= @room.title %></td>
+      </tr>
+
+      <tr>
+        <th>エリア</th><td><%= @room.area %></td>
+      </tr>
+
+      <tr>
+        <th>住所</th><td><%= @room.address %></td>
+      </tr>
+
+      <tr>
+        <th>プライス</th><td><%= @room.price %></td>
+      </tr>
+      <tr>
+        <th>詳細</th><td><%= @room.content %></td>
+      </tr>
+      <tr>
+        <th>ルームイメージ</th>
+        <td>
+        <% if @room.image_name == "#{@room.id}.jpg" %>
+          <img src="<%= "/room_images/#{@room.image_name}" %>" class="room-image">
+        <% else %>
+          <img src ="/room_images/default-room.jpg" class="room-image">
+        <% end %>
+        </td>
+      </tr>
+    </table>
+    <%= link_to reservations_new_path(@room, room_id: @room.id) do %>
+      <button class="btn" >予約</button>
+    <% end %>
+    
+  
+<% end %>
+

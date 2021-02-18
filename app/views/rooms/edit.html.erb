@@ -1,0 +1,25 @@
+<div class="main room-show">
+  <div class="container">
+    <div class="room">
+    <%= form_tag("/rooms/#{@room.id}/update",{multipart:true}) do %>
+      <h2>ルーム編集</h2>
+      <p>ルーム名</p>
+      <p><input name="title" value="<%= @room.title %>"></p>
+      <p>エリア</p>
+      <p><input name="area" value="<%= @room.area %>"></p>
+      <p>住所</p>
+      <p><input name="address" value="<%= @room.address %>"></p>
+      <p>プライス</p>
+      <p><input name="price" value="<%= @room.price %>"></p>
+      <p>詳細</p>
+      <p><input name="content" value="<%= @room.content %>"></p>
+      <p>ルームイメージ</p>
+      <p><input name="image" type="file"></p>
+    
+ 
+
+      <p><input type="submit" value="編集"></p>
+    <% end %>  
+    </div>
+  </div>
+</div>
