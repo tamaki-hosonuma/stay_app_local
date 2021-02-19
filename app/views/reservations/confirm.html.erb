@@ -1,18 +1,42 @@
 <h3>予約内容を確認してください</h3>
 
-<%= form_for @reservation do |f| %>
+<table>
+  <tr>
+    <th>ルーム名</th><td><%= "#{@room.title}" %> </td>
+  </tr>
+  <tr>
+    <th>チェックイン</th><td><%= "#{@reservation.start}" %> </td>
+  </tr>
+  <tr>
+    <th>チェックアウト</th><td><%= "#{@reservation.end}" %> </td>
+  </tr>
+  <tr>
+    <th>人数</th><td><%= "#{@reservation.num_people}" %> </td>
+  </tr>
+  <tr>
+    <th>料金</th><td><%= "#{@room.price * @reservation.num_people}" %> </td>
+  </tr>
+</table>
+
+
+<%= form_for @reservation, method: :post, url: reservations_back_path do |f| %>
     <%= f.hidden_field :room_id, value: @room.id %>
     <%= f.hidden_field :user_id, value: @current_user.id %>
     <%= f.hidden_field :start %>
     <%= f.hidden_field :end %>
-    <%= f.hidden_field : %>
-    <p><%= @room.title %></p>
+    <%= f.hidden_field :num_people %>
+    <%= f.submit '入力画面に戻る'%>
+    
+<% end%>
+
+<%= form_for @reservation, method: :post, url: reservations_create_path do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.hidden_field :start %>
+    <%= f.hidden_field :end %>
+    <%= f.hidden_field :num_people %>
+    <%= f.submit '確定する' %>
+    
 <% end%>
 
 
-// = simple_form_for @user do |f|
-//   = f.input :first_name, as: :hidden
-//   = f.input :last_name, as: :hidden
-//   = f.input :email, as: :hidden
-//   = f.submit "送信", class: "btn btn-primary"
-//   = f.submit "戻る", name: :back, class: "btn btn-secondary"

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:show,:edit, :update]}
+  before_action :authenticate_user, only: [:index, :show, :edit, :update]
 
   def index
     @users = User.all
@@ -43,8 +44,8 @@ class UsersController < ApplicationController
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      image_name: "default-user.jpg"
-    )
+      image_name: "default-user.jpg",
+      content: params[:content])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "登録完了しました"
@@ -63,6 +64,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.email = params[:email]
     @user.password = params[:password]
+    @user.content = params[:content]
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
@@ -77,8 +79,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :image_name)
+    params.require(:user).permit(:name, :email, :password, :image_name, :content)
   end
 
   def ensure_correct_user

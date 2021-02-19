@@ -20,9 +20,7 @@
  }
  header{
    height: 120px;
-   /* background:linear-gradient(111.1642091028458deg, rgba(6, 54, 99,1) 8.083956774729842%,rgba(0, 0, 0,1) 84.25031172069826%); */
    background-color: rgb(0,0,0);
-   /* display:space-between; */
  }
 
  .header-line{

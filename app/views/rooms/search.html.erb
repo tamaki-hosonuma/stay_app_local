@@ -1,19 +1,21 @@
 <h3>検索結果</h3>
-<div class="room-search-top">
-<% @rooms.each do |room| %>
-  <div class="room-card">
-  <%= link_to "/rooms/#{room.id}" do %>
-    <p><%= room.title %></p>
-    <p><%= room.area %></p>
-    <p>¥<%= room.price %>/人</p>
-    <p>
-    <% if room.image_name == "#{room.id}.jpg" %>
-          <img src="<%= "/room_images/#{room.image_name}" %>" class="room-image">
-    <% else %>
-          <img src ="/room_images/default-room.jpg" class="room-image">
+
+
+<% if @results.present? %>
+  <ul>
+    <% @results.each do |room| %>
+      <div class="room-card">
+        <p><%= room.title %></p>
+        <p><%= room.area %></p>
+        <p>¥<%= room.price %>/人</p>
+        <p>
+        <% if room.image_name == "#{room.id}.jpg" %>
+         <img src="<%= "/room_images/#{room.image_name}" %>" class="room-image">
+        <% else %>
+         <img src ="/room_images/default-room.jpg" class="room-image">
+        <% end %>
+        </p>
     <% end %>
-  <% end %>
-  </p>
   </div>
 <% end %>
 

@@ -1,47 +1,46 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <div class="top">
   <div class="top-page">
     <div class="search-form">
       <div class="search">
         <h2>未知なる世界へ、さぁ冒険だ</h2>
-        <p>エリアで検索</p>
-        <%= form_tag(search_path, :method => 'get') do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag 'search'%>
+        <div class="search-box">
+          <p>エリアで検索</p>
+          <%= search_form_for @q ,:url=>{:controller=>"rooms",:action=>"search"} do |f| %>
+            <%= f.search_field :area_cont %>
+            <%= f.submit '検索' %>
+          <% end %>
+        </div>
+
+        <div class="search-box">
+        <p>キーワード検索</p>
+        <%= search_form_for @q ,:url=>{:controller=>"rooms",:action=>"search"} do |f| %>
+        <%= f.search_field :title_or_content_cont %>
+        <%= f.submit '検索' %>
         <% end %>
-        <%# <input type="text" placeholder="Tokyo">
-        <input type="submit" value="探す"> %>
+        </div>
+      
       </div>
     </div>
-    <%# <div>
-    <img src= "飛行機.jpg" alt="飛行機の写真" class="back-image">
-    </div> %>
+
   </div>
   <h4>おすすめのエリア</h4>
   <div class="recommend-area">
-
-   <%#= link_to(search_path) do %>
     <div class="view-card">
-      <%#= form_for(search_path) do |f| %>
-      <%#= hidden_field_tag :search, value: 'Tokyo' %>
-      <p>Tokyo</p>
+      <p>
+      <%= link_to 'Tokyo',{:controller=>"rooms",:action=>"index",:q=>{:area_cont=>('Tokyo')}}%>
+      </p>
       <img src="Tokyo-view.jpg" class="view">
-      <%# end %>
     </div>
-   <%# end %>
     <div class="view-card">
-     <p>Sydney</p>
+     <p>
+      <%= link_to 'Sydney',{:controller=>"rooms",:action=>"index",:q=>{:area_cont=>('Sydney')}}%>
+      </p>
      <img src="Sydney-view.jpg" class="view">
     </div>
   </div>
-
-
-<%#= form_for(search_path) do |f| %>
-    <%#= f.hidden_field :room_area, value: Tokyo %>
-   
-
-
-
-  <%= link_to("ルーム一覧","/rooms/index")%>
     
   </div>
 </div>

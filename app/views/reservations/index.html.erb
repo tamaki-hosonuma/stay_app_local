@@ -7,10 +7,14 @@
 <tr>
 <th>ルーム写真</th><th>ルーム名</th> <th>チェックイン</th> <th>チェックアウト</th><th>人数</th><th>予約ユーザーID</th>
 </tr>
-<% @reservations.each do |reservation| %>
+<% @current_reservations.each do |reservation| %>
 
 <tr>
-<td>ルーム写真</td>
+<td><% if @room.image_name == "#{@room.id}.jpg" %>
+          <img src="<%= "/room_images/#{@room.image_name}" %>" class="room-image">
+    <% else %>
+          <img src ="/room_images/default-room.jpg" class="room-image">
+    <% end %></td>
 <td><%= @room.title %></td>
 <td><%= reservation.start %></td>
 <td><%= reservation.end %></td>
