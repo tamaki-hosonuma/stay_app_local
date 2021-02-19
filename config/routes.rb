@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
 
   post "reservations/create" => "reservations#create"
-  get 'reservations/index'
+  get 'reservations/index' => "reservations#index"
 
   get "reservations/new" => "reservations#new"
   post "reservations/new" => "reservations#new"
+  post "reservations/confirm" => "reservations#confirm"
+  post "reservations/back" => "reservations#back"
 
-  resources :reservations
+ 
 
   get 'rooms/index' => "rooms#index"
   get "rooms/new" => "rooms#new"

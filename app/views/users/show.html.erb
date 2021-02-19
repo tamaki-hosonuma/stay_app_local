@@ -12,9 +12,14 @@
       <p><%= @user.name %></p>
       <p>メールアドレス</p>
       <p><%= @user.email %></p>
-      <%# <p>パスワード</p>
-      <p><%= @user.password %>
-      <input type="submit" value="編集">
+      <p>プロフィール画像</p>
+       
+        <% if @user.image_name == "#{@user.id}.jpg" %>
+          <img src="<%= "/user_images/#{@user.image_name}" %>" class="user-image">
+        <% else %>
+          <img src ="/user_images/default-user.jpg" class="user-image">
+        <% end %>
+        <input type="submit" value="編集">
     <% end %>
     </div>
   </div>
