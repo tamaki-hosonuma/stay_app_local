@@ -1,0 +1,20 @@
+<h3>ルーム一覧</h3>
+<div class="room-top">
+  <% @rooms.each do |room| %>
+    <div class="room-card">
+      <%= link_to "/rooms/#{room.id}" do %>
+        <p>ルーム名</p>
+        <p><%= room.title %></p>
+        <p>エリア</p>
+        <p><%= room.area %></p>
+        <p>ルームイメージ</p>
+        <% if room.image_name == "#{room.id}.jpg" %>
+          <img src="<%= "/room_images/#{room.image_name}" %>" class="room-image">
+        <% else %>
+          <img src ="/room_images/default-room.jpg" class="room-image">
+        <% end %>
+      <% end %>
+  
+    </div>
+  <% end %>
+</div>

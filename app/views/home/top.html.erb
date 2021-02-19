@@ -1,0 +1,46 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<div class="top">
+  <div class="top-page">
+    <div class="search-form">
+      <div class="search">
+        <h2>未知なる世界へ、さぁ冒険だ</h2>
+        <div class="search-box">
+          <p>エリアで検索</p>
+          <%= search_form_for @q ,:url=>{:controller=>"rooms",:action=>"search"} do |f| %>
+            <%= f.search_field :area_cont %>
+            <%= f.submit '検索' %>
+          <% end %>
+        </div>
+
+        <div class="search-box">
+        <p>キーワード検索</p>
+        <%= search_form_for @q ,:url=>{:controller=>"rooms",:action=>"search"} do |f| %>
+        <%= f.search_field :title_or_content_cont %>
+        <%= f.submit '検索' %>
+        <% end %>
+        </div>
+      
+      </div>
+    </div>
+
+  </div>
+  <h4>おすすめのエリア</h4>
+  <div class="recommend-area">
+    <div class="view-card">
+      <p>
+      <%= link_to 'Tokyo',{:controller=>"rooms",:action=>"index",:q=>{:area_cont=>('Tokyo')}}%>
+      </p>
+      <img src="Tokyo-view.jpg" class="view">
+    </div>
+    <div class="view-card">
+     <p>
+      <%= link_to 'Sydney',{:controller=>"rooms",:action=>"index",:q=>{:area_cont=>('Sydney')}}%>
+      </p>
+     <img src="Sydney-view.jpg" class="view">
+    </div>
+  </div>
+    
+  </div>
+</div>

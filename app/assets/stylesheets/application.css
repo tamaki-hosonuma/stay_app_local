@@ -12,4 +12,56 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
+
+ a{
+   text-decoration: none;
+ }
+ header{
+   height: 120px;
+   background-color: rgb(0,0,0);
+ }
+
+ .header-line{
+   display: flex;
+
+ }
+
+ .header-logo{
+   padding-top: 30px;
+   width: 400px;
+ }
+ .header-logo>  a{
+     color: #fff;
+     font-size: 28px;
+     text-decoration: none;
+     padding-left: 40px;
+  } 
+
+ .nav{
+   float: right;
+   background-color: rgb(0,0,0);
+   color: #fff;
+ }
+
+ .nav-list{
+   display:flex;
+ }
+ 
+ ul{
+   list-style: none;
+ }
+
+.nav-list > li{
+    color: #fff;
+}
+
+input{
+  height: 30px;
+
+}
+
+.user-image{
+  width: 50px;
+}

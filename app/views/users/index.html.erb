@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<h1>ユーザー一覧</h1>
+<% @users.each do |user| %>
+<p><%= user.name %></p>
+
+<p>プロフィール画像</p>
+<img src="<%= "/user_images/#{user.image_name}" %> ">
+
+
+<% end %>

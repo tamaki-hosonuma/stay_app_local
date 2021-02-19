@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<h3>予約一覧</h3>
+<table class="r-table">
+<tr>
+<th>ルーム写真</th><th>ルーム名</th> <th>チェックイン</th> <th>チェックアウト</th><th>人数</th><th>予約ユーザーID</th>
+</tr>
+<% @current_reservations.each do |reservation| %>
+
+<tr>
+<td><% if @room.image_name == "#{@room.id}.jpg" %>
+          <img src="<%= "/room_images/#{@room.image_name}" %>" class="room-image">
+    <% else %>
+          <img src ="/room_images/default-room.jpg" class="room-image">
+    <% end %></td>
+<td><%= @room.title %></td>
+<td><%= reservation.start %></td>
+<td><%= reservation.end %></td>
+<td><%= reservation.num_people %>名</td>
+<td><%= @current_user.id %></td>
+</tr>
+
+<% end %>
+</table>
+

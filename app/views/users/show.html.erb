@@ -1,0 +1,26 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+    <% if flash[:notice] %>
+     <p><%= flash[:notice] %></p>
+    <% end %>
+
+
+    <%= form_tag("/users/#{@user.id}/edit") do %>
+      <h3>アカウント情報</h3>
+      <p>名前</p>
+      <p><%= @user.name %></p>
+      <p>メールアドレス</p>
+      <p><%= @user.email %></p>
+      <p>プロフィール画像</p>
+       
+        <% if @user.image_name == "#{@user.id}.jpg" %>
+          <img src="<%= "/user_images/#{@user.image_name}" %>" class="user-image">
+        <% else %>
+          <img src ="/user_images/default-user.jpg" class="user-image">
+        <% end %>
+        <input type="submit" value="編集">
+    <% end %>
+    </div>
+  </div>
+</div>

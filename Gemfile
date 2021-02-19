@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
@@ -40,6 +42,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "meta_request"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -52,3 +58,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'fullcalendar-rails'
+gem "refile", require: "refile/rails", github: "manfe/refile"
+gem "refile-mini_magick"
+gem "bulma-rails"
+gem 'ransack'
